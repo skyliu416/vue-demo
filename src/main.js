@@ -3,13 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Toast from './js/toast.js';
 
+Vue.use(Toast)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  mounted () {
+    window.vue = this
+  },
 })
