@@ -4,7 +4,7 @@ import index from '@/components/index'
 import testRouter from '@/components/testRouter'
 import testRouter2 from '@/components/test-router2'
 import testToast from '@/components/test-toast'
-
+import testCSS from '@/components/test-css'
 
 Vue.use(Router)
 
@@ -29,6 +29,11 @@ export default new Router({
       path: '/test-toast',
       name: 'testToast',
       component: testToast
+    },
+    {
+      path: '/test-css',
+      name: 'testCSS',
+      component: testCSS
     }
   ]
 })

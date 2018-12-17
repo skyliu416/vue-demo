@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    #tooltip{
+      height:30px;
+      width:50px;
+      border:solid 1px;
+      position: absolute;
+    }
+    li{
+      display:inline-block;
+    }
+  </style>
+  <div>
+    <ul class="ul1" id="ul1">
+
+      <li class="item">111</li>
+      <li class="item">222</li>
+      <li class="item">333</li>
+      <li class="item">444</li>
+      <li class="item">555</li>
+
+
+    </ul>
+  </div>
+  <div id="tooltip" style="position:fixed;display:inline-block;width:100px";height:100px;>123</div>
+</head>
+<body>
+<script type="text/javascript">
+  window.onload = function(){
+    function getTop(e){
+      var offset=e.offsetTop;
+      if(e.offsetParent!=null){
+        offset+=getTop(e.offsetParent);
+      }
+      return offset;
+    }
+    /*获取元素的横坐标*/
+    function getLeft(e){
+      var offset=e.offsetLeft;
+      if(e.offsetParent!=null){
+        offset+=getLeft(e.offsetParent);
+      }
+      return offset;
+    }
+
+    var oUl = document.getElementById("ul1");
+    var ul = document.getElementsByClassName("ul1");
+    var tool = document.getElementById("tooltip");
+    ul[0].onclick = function(e){
+      const ajax = param =>{
+        return new Promise(resolve,reject){
+          $.ajax({
+            "type":"get",
+            "url":"",
+            "data":{},
+            "async":"",
+            "success":function(res){
+              resolve(res);
+              console.log(res)
+            },
+            "error":function(res){
+              reject(res)
+            }
+
+          })
+        }
+      }
+      var event = e ||window.event;
+      var target = event.target || event.srcElement;
+      if(target.nodeName.toLowerCase()=="li"){
+        tool.style.display = "block";
+
+
+
+        tool.style.top = target.getBoundingClientRect().top+"px";
+        tool.style.left = target.getBoundingClientRect().left+"px";
+        setTimeout(function () {
+          tool.style.display="none";
+        },1000)
+      }
+
+    }
+  }
+</script>
+
+
+</body>
+</html>

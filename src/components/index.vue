@@ -29,6 +29,10 @@
               {
                 path:"/test-toast",
                 id:""
+              },
+              {
+                path:"/test-css",
+
               }
             ]
 

@@ -1,0 +1,44 @@
+<html>
+<head>
+
+</head>
+
+<body>
+<div>
+  <ul>
+
+    <li class="item">111</li>
+    <li class="item">222</li>
+    <li class="item">333</li>
+    <li class="item">444</li>
+    <li class="item">555</li>
+
+
+  </ul>
+</div>
+<script type="text/javascript">
+  window.onload = function (
+    alert("123")
+  )
+
+  function getElemPos(obj){
+    var pos = {"top":0, "left":0};
+    if (obj.offsetParent){
+      while (obj.offsetParent){
+        pos.top += obj.offsetTop;
+        pos.left += obj.offsetLeft;
+        obj = obj.offsetParent;
+      }
+    }else if(obj.x){
+      pos.left += obj.x;
+    }else if(obj.x){
+      pos.top += obj.y;
+    }
+    return {x:pos.left, y:pos.top};
+  }
+</script>
+</body>
+<foot>
+
+</foot>
+</html>
